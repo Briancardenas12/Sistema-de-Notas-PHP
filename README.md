@@ -14,7 +14,7 @@ Si deseas contribuir, tienes sugerencias o deseas obtener más información, no 
 
 #ProyectoPersonal #DesarrolloWeb #PHP #MVC #SistemaDeNotas #WebDevelopment
 
-![Texto alternativo de la imagen]([URL de la imagen](https://raw.githubusercontent.com/Briancardenas12/Sistema-de-Notas-PHP/main/Logo%20Sistemas%20de%20Notas.jpg))
+![Texto alternativo de la imagen]((https://raw.githubusercontent.com/Briancardenas12/Sistema-de-Notas-PHP/main/Logo%20Sistemas%20de%20Notas.jpg))
 
 
 ## Tabla de Contenidos
