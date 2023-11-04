@@ -1,4 +1,4 @@
-# Sistema-de-Notas-PHP
+# Sistema de Notas PHP
 Sistemas de Notas con (PHP -SQL -HTML -CSS)
 
 ![Texto alternativo de la imagen](https://raw.githubusercontent.com/Briancardenas12/Sistema-de-Notas-PHP/main/Logo%20Sistemas%20de%20Notas.jpg)
