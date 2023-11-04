@@ -1,0 +1,38 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-image: radial-gradient(circle at 45.96% 51.08%, #342e5f 0, #3d2b5c 8.33%, #452958 16.67%, #4b2653 25%, #51234f 33.33%, #552149 41.67%, #591f44 50%, #5c1d3e 58.33%, #5e1c39 66.67%, #601c33 75%, #601c2d 83.33%, #601d28 91.67%, #5f1e22 100%);
+}
+
+nav li {
+  display: inline;
+  margin: 0 0 0 15px;
+}
+
+
+ul {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  margin-right: 15%;
+}
+
+.tituloPrincipal {
+  padding-left: 30px;
+  text-align: center;
+  margin: 1em;
+  color: black;
+  font-family: fantasy;
+
+}
+
+footer {
+  text-align: center;
+  background: url(../img/bg.jpg);
+  padding: 40px;
+}
+
+.copyright {
+  color: white;
+  font-size: 13px;
+  margin: 20px;
+}
