@@ -4,7 +4,7 @@ require_once('../../Usuarios/Modelo/Usuarios.php');
 require_once('../Modelo/Materias.php');
 
 $ModeloUsuarios = new Usuarios();
-$ModeloUsuarios->validateSession();
+$ModeloUsuarios->validateSessionAdministrador();
 
 $Modelo = new Materias();
 ?>
@@ -28,10 +28,22 @@ $Modelo = new Materias();
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="../../Estudiantes/Pages/index.php">Estudiantes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Docentes/Pages/index.php">Docentes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Administradores/Pages/index.php">Administradores</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Materias</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Contactos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Usuarios/Controlador/Salir.php">Salir</a>
                   </li>
                 </ul>
               </div>
@@ -42,6 +54,7 @@ $Modelo = new Materias();
     	<section class="principal">
             <div>
                 <h1 class="tituloPrincipal"> Tabla Materias</h1>
+                <h3 class="tituloSecundario"><?php echo $ModeloUsuarios->getNombre(); ?> - <?php echo $ModeloUsuarios->getPerfil(); ?></h3>
             </div>
         </section>
         <section>

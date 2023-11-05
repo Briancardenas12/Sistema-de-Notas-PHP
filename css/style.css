@@ -25,6 +25,17 @@ ul {
 
 }
 
+.tituloSecundario{
+
+  padding-left: 30px;
+  text-align: center;
+  margin: 1em;
+  color: white;
+  font-family: fantasy;
+
+}
+
+
 footer {
   text-align: center;
   background: url(../img/bg.jpg);

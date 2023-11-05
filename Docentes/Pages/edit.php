@@ -1,3 +1,18 @@
+<?php
+
+require_once('../../Usuarios/Modelo/Usuarios.php');
+require_once('../Modelo/Docentes.php');
+
+$ModeloUsuarios = new Usuarios();
+$ModeloDocentes = new Docentes();
+
+$ModeloUsuarios->validateSession();
+
+$Id = $_GET['Id'];
+
+$Docentes = $ModeloDocentes->getById($Id);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,22 +47,30 @@
                 <h1 class="tituloPrincipal"> Editar Docente </h1>
             </div>
             <form method="POST" action="../Controlador/edit.php">
-                <input type="hidden" name="Id" value=""> <br>
+              <?php  
+              if($Docentes != null){
+                foreach($Docentes as $Info){
+              ?>
+              <input type="hidden" name="Id" value="<?php echo $Id; ?>"> <br>
             	<label for="Nombre">Nombre</label>
-				<input type="text" name="Nombre" class="input-padron" required="" autocomplete="off" placeholder="Nombre"> <br>
-				<label for="Apellido">Apellido</label>
-				<input type="text" name="Apellido" class="input-padron" required="" autocomplete="off" placeholder="Apellido"> <br>
-				<label for="Usuario">Usuario</label>
-				<input type="text" name="Usuario" class="input-padron" required="" autocomplete="off" placeholder="Usuario"> <br>
-				<label for="Password">Password</label>
-				<input type="password" name="Password"class="input-padron" required="" autocomplete="off" placeholder="Password"><br>
-                <label for="Estado">Estado</label>
-                <select name="Estado" class="input-padron" required="">
-                    <option>Seleccionar</option>
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
-                </select>
-				<input type="submit" value="Editar Docente" class="enviar">
+      				<input type="text" name="Nombre" class="input-padron" required="" autocomplete="off" value="<?php echo $Info['NOMBRE']; ?>"> <br>
+      				<label for="Apellido">Apellido</label>
+      				<input type="text" name="Apellido" class="input-padron" required="" autocomplete="off" value="<?php echo $Info['APELLIDO']; ?>"> <br>
+      				<label for="Usuario">Usuario</label>
+      				<input type="text" name="Usuario" class="input-padron" required="" autocomplete="off" value="<?php echo $Info['USUARIO']; ?>"> <br>
+      				<label for="Password">Password</label>
+      				<input type="password" name="Password"class="input-padron" required="" autocomplete="off" value="<?php echo $Info['PASSWORD']; ?>"><br>
+                      <label for="Estado">Estado</label>
+                      <select name="Estado" class="input-padron" required="">
+                          <option value="<?php echo $Info['ESTADO']; ?>"><?php echo $Info['ESTADO']; ?></option>
+                          <option value="Activo">Activo</option>
+                          <option value="Inactivo">Inactivo</option>
+                      </select>
+              <?php
+                  }
+              }
+              ?>
+      				<input type="submit" value="Editar Docente" class="enviar">
             </form>
         </section>
     </main>

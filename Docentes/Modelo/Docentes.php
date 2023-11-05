@@ -4,7 +4,7 @@ require_once('../../conexion.php');
 class Docentes extends Conexion{
 
 	public function __construct(){
-		$this->db parent::__construct();
+		$this->db= parent::__construct();
 	}
 
 	public function add($Nombre, $Apellido, $Usuario, $Password){
@@ -13,7 +13,7 @@ class Docentes extends Conexion{
 
 		$statement->bindParam(':Nombre',$Nombre);
 		$statement->bindParam(':Apellido', $Apellido);
-		$statement->bindParam(':Ususario', $Ususario);
+		$statement->bindParam(':Usuario', $Usuario);
 		$statement->bindParam(':Password', $Password);
 
 		if($statement->execute()){
@@ -27,7 +27,7 @@ class Docentes extends Conexion{
 	public function get(){
 
 		$rows = null;
-		$statement = $this-db->prepare("SELECT * FROM usuarios WHERE PERFIL = 'Docente'");
+		$statement = $this->db->prepare("SELECT * FROM usuarios WHERE PERFIL = 'Docente'");
 
 		$statement->execute();
 		while($result = $statement->fetch()){
@@ -36,7 +36,9 @@ class Docentes extends Conexion{
 		return $rows;
 	}
 
-	public function getId($Id){
+
+
+	public function getById($Id){
 		$rows = null;
 		$statement = $this->db->prepare("SELECT *FROM usuarios WHERE PERFIL = 'Docente' AND ID_USUARIO = :Id");
 
@@ -52,9 +54,10 @@ class Docentes extends Conexion{
 	public function update($Id, $Nombre, $Apellido, $Usuario, $Password, $Estado){
 		$statement = $this->db->prepare("UPDATE usuarios SET NOMBRE = :Nombre, APELLIDO = :Apellido, USUARIO = :Usuario; PASSWORD = :Password, ESTADO = :Estado WHERE ID_USUARIO = :Id");
 
+		$statement->bindParam(':Id', $Id);
 		$statement->bindParam(':Nombre', $Nombre);
 		$statement->bindParam(':Apellido', $Apellido);
-		$statement->bindParam(':Ususario', $Ususario);
+		$statement->bindParam(':Usuario', $Usuario);
 		$statement->bindParam(':Password', $Password);
 		$statement->bindParam(':Estado', $Estado);
 

@@ -1,3 +1,12 @@
+<?php  
+
+require_once('../../Usuarios/Modelo/Usuarios.php');
+
+$ModeloUsuarios = new Usuarios();
+$ModeloUsuarios-> validateSession();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,13 +42,13 @@
             </div>
             <form method="POST" action="../Controlador/add.php">
             	<label for="Nombre">Nombre</label>
-				<input type="text" name="Nombre" class="input-padron" required="" autocomplete="off" placeholder="Nombre"> <br>
+				<input type="text" name="Nombre" class="input-padron" required="" autocomplete="off"> <br>
 				<label for="Apellido">Apellido</label>
-				<input type="text" name="Apellido" class="input-padron" required="" autocomplete="off" placeholder="Apellido"> <br>
+				<input type="text" name="Apellido" class="input-padron" required="" autocomplete="off"> <br>
 				<label for="Usuario">Usuario</label>
-				<input type="text" name="Usuario" class="input-padron" required="" autocomplete="off" placeholder="Usuario"> <br>
+				<input type="text" name="Usuario" class="input-padron" required="" autocomplete="off"> <br>
 				<label for="Password">Password</label>
-				<input type="password" name="Password"class="input-padron" required="" autocomplete="off" placeholder="Password"><br>
+				<input type="password" name="Password"class="input-padron" required="" autocomplete="off"><br>
 				<input type="submit" value="Registrar Docente" class="enviar">
             </form>
         </section>
