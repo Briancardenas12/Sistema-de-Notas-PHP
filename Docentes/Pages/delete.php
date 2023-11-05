@@ -1,3 +1,12 @@
+<?php 
+require_once('../../Usuarios/Modelo/Usuarios.php');
+
+$ModeloUsuarios = new Usuarios();
+$ModeloUsuarios->validateSession();
+
+$Id = $_GET['Id'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +42,7 @@
             </div>
         </section>
         <form method="POST" action="../Controlador/delete.php">
-        	<input type="hidden" name="Id" value="">
+        	<input type="hidden" name="Id" value="<?php echo $Id; ?>">
         	<h3>¿Esta seguro de que desea eliminar el docente?</h3>
         	<input type="submit" value="Eliminar Docente" class="enviar">
         </form>

@@ -21,27 +21,67 @@ $Modelo = new Estudiantes();
     <link rel="stylesheet" href="../../css/style_table.css" />
 </head>
 <body>
-	<header>
+
+    <?php
+    if($ModeloUsuarios->getPerfil() == 'Docente'){
+    ?>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #151859;">
             <div class="container">
               <a class="navbar-brand" href="#">BRIAN DEV</a>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#">Estudiantes</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Contactos</a>
+                    <a class="nav-link" href="../../Usuarios/Controlador/Salir.php">Salir</a>
                   </li>
                 </ul>
               </div>
             </div>
         </nav>
     </header>
+    <?php
+    }else{
+    ?>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #151859;">
+            <div class="container">
+              <a class="navbar-brand" href="#">BRIAN DEV</a>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Estudiantes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Docentes/Pages/index.php">Docentes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Administradores/Pages/index.php">Administradores</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Materias/Pages/index.php">Materias</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contactos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Usuarios/Controlador/Salir.php">Salir</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <?php
+    }
+    ?>
 	<main>
 		<section class="principal">
             <div>
                 <h1 class="tituloPrincipal"> Tabla Estudiantes</h1>
+                <h3 class="tituloSecundario"><?php echo $ModeloUsuarios->getNombre(); ?> - <?php echo $ModeloUsuarios->getPerfil(); ?></h3>
             </div>
         </section>
         <section>

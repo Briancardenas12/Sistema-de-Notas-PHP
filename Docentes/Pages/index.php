@@ -1,3 +1,15 @@
+<?php  
+
+require_once('../../Usuarios/Modelo/Usuarios.php');
+require_once('../Modelo/Docentes.php');
+
+$ModeloUsuarios = new Usuarios();
+$ModeloDocentes = new Docentes();
+
+$ModeloUsuarios-> validateSessionAdministrador();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +29,22 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="../../Estudiantes/Pages/index.php">Estudiantes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Docentes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Administradores/Pages/index.php">Administradores</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Materias/Pages/index.php">Materias</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Contactos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../Usuarios/Controlador/Salir.php">Salir</a>
                   </li>
                 </ul>
               </div>
@@ -31,6 +55,7 @@
     	<section class="principal">
             <div>
                 <h1 class="tituloPrincipal"> Tabla Docentes</h1>
+                <h3 class="tituloSecundario"><?php echo $ModeloUsuarios->getNombre(); ?> - <?php echo $ModeloUsuarios->getPerfil(); ?></h3>
             </div>
         </section>
         <section>
@@ -50,20 +75,29 @@
                                 <th>Acciones</th>
                             </tr>
                     </thead>
+                    <?php
+                    $Docentes = $ModeloDocentes->get();
+                    if($Docentes != null){
+                        foreach($Docentes as $Docente){
+                    ?>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Brian</td>
-                            <td>Cardenas</td>
-                            <td>Bcardenas12</td>
-                            <td>Docente</td>
-                            <td>Activo</td>
+                            <td><?php echo $Docente['ID_USUARIO']; ?></td>
+                            <td><?php echo $Docente['NOMBRE']; ?></td>
+                            <td><?php echo $Docente['APELLIDO']; ?></td>
+                            <td><?php echo $Docente['USUARIO']; ?></td>
+                            <td><?php echo $Docente['PERFIL']; ?></td>
+                            <td><?php echo $Docente['ESTADO']; ?></td>
                             <td>
-                                <button type="button" class="btn btn-warning"><a href="edit.php" target="_blank">Editar</a></button>
-                                <button type="button" class="btn btn-danger"><a href="delete.php" target="_blank">Eliminar</a></button>
+                                <button type="button" class="btn btn-warning"><a href="edit.php?Id=<?php echo $Docente['ID_USUARIO']; ?>" target="_blank">Editar</a></button>
+                                <button type="button" class="btn btn-danger"><a href="delete.php?Id=<?php echo $Docente['ID_USUARIO']; ?>" target="_blank">Eliminar</a></button>
                             </td>
                         </tr>
                     </tbody>
+                    <?php
+                        }
+                    }
+                    ?>
                 </table>
             </div>
     	</section>
